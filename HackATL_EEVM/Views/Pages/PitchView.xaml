@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HackATL_EEVM.Views.Pages.PitchView">
+  <ContentView.Content>
+        <StackLayout Margin="30">
+            <Image Source="AllInfo.png"/>
+            <StackLayout Orientation="Vertical" Margin="30" Spacing="50">
+                <Image Source="JudgingRubric.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="judgingRub" Tapped="JudgingRub_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                
+                <Image Source="SubmitTeam.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="submitTeam" Tapped="SubmitTeam_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Source="SubmitPitch.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="submitPitch" Tapped="SubmitPitch_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="PitchTime.png">
+                    
+                </Image>
+                <Image Source="LiveResult.png">
+                    
+                </Image>
+            </StackLayout>
+
+        </StackLayout>
+      
+  </ContentView.Content>
+</ContentView>
