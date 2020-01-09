@@ -43,8 +43,10 @@ namespace HackATL_EEVM.Views.Master.MaserMenuNav
 
         }
 
-        private void Editor_Tapped(object sender, EventArgs e)
+        public async void Editor_Tapped(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new PersonalInfo());
+
 
         }
     }

@@ -10,6 +10,7 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using HackATL_EEVM.Views.Master.MaserMenuNav;
 using HackATL_EEVM.Helpers_token;
 using Application = Xamarin.Forms.Application;
+using HackATL_EEVM.Views.Chat;
 
 namespace HackATL_EEVM.Views.Master
 {
@@ -55,6 +56,10 @@ namespace HackATL_EEVM.Views.Master
 
         private void ChatFeat_Tapped(object sender, EventArgs e)
         {
+            var temp = (Application.Current.MainPage as MasterDetailPage);
+            var temp2 = temp.Detail as Xamarin.Forms.NavigationPage;
+            temp.IsPresented = true;   //false if code crashes
+            temp2.PushAsync(new ChatEntry());
             DisplayAlert("Maintenance", "Chat feature is currently disabled", "Ok");
 
         }

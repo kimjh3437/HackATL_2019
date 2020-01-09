@@ -15,6 +15,7 @@ namespace HackATL_EEVM.Services.User_related
         public async Task<List<firebaseUser>> GetAllUser()
         {
             var result = (await firebase
+                .Child("eevmhackatl")
                 .Child("UserInfo")
                 .OnceAsync<firebaseUser>()).Select(user => new firebaseUser{
                 Username = user.Object.Username,
@@ -30,10 +31,11 @@ namespace HackATL_EEVM.Services.User_related
             return result;
 
         }
-        public async Task AddUser(firebaseUser user)
+        public async Task AddUser(firebaseUser user) 
         {
             var newUser = user;
             await firebase
+                .Child("eevmhackatl")
                 .Child("UserInfo")
                 .PostAsync(newUser);
         }
@@ -42,6 +44,7 @@ namespace HackATL_EEVM.Services.User_related
         {
             var user = await GetAllUser();
             await firebase
+                .Child("eevmhackatl")
                 .Child("UserInfo")
                 .OnceAsync<firebaseUser>();
             return user.Where(x => x.Username == username).FirstOrDefault();
@@ -50,13 +53,17 @@ namespace HackATL_EEVM.Services.User_related
         public async Task UpdateUser(string username, firebaseUser user)
         {
             var toUpdateUser = (await firebase
+                .Child("eevmhackatl")
                 .Child("UserInfo")
                 .OnceAsync<firebaseUser>()).Where(x => x.Object.Username == username).FirstOrDefault();
             var newUser = user;
             await firebase
+                .Child("eevmhackatl")
                 .Child("UserInfo")
                 .Child(toUpdateUser.Key)
                 .PutAsync(new firebaseUser() {
+                    Role = user.Role,
+                    Username = user.Username,
                     Firstname = user.Firstname,
                     Lastname = user.Lastname,
                     University = user.University,
@@ -69,6 +76,7 @@ namespace HackATL_EEVM.Services.User_related
         public async Task DeleteAgenda(string username)
         {
             var toDeleteUser = (await firebase
+                .Child("eevmhackatl")
                 .Child("UserInfo")
                 .OnceAsync<firebaseUser>()).Where(x => x.Object.Username == username).FirstOrDefault();
             await firebase.Child("UserInfo").Child(toDeleteUser.Key).DeleteAsync();

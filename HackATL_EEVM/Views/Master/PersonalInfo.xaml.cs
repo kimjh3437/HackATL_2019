@@ -25,18 +25,23 @@ namespace HackATL_EEVM.Views.Master
             await Navigation.PopAsync();
         }
 
+        
+        
+
         async void finalsignup2_Tabbed(object sender, EventArgs e)
         {
             string currentUser = Settings.Username;
             var user = new firebaseUser
             {
+                Username = currentUser,
                 Firstname = txtFirstname.Text,
                 Lastname = txtLastname.Text,
                 University = txtUniversity.Text,
                 Facebook = txtFacebook.Text,
                 LinkedIn = txtLinkedIn.Text,
                 Twitter = txtTwitter.Text,
-                Instagram = txtInstagram.Text
+                Instagram = txtInstagram.Text,
+                Role = Settings.Role
             };
             Settings.Firstname = txtFirstname.Text;
             Settings.Lastname = txtLastname.Text;

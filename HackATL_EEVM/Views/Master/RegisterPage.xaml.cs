@@ -49,11 +49,21 @@ namespace HackATL_EEVM.Views.Master
                             var user = new firebaseUser
                             {
                                 Username = txtEmail.Text,
-                                Role = role
-                                
+                                Role = role,
+                                Firstname = "",
+                                Lastname = "",
+                                University = "",
+                                Facebook = "",
+                                LinkedIn = "",
+                                Twitter = "",
+                                Instagram = ""
+
                             };
                             await firebase.AddUser(user);
                             Settings.Username = txtEmail.Text;
+                            Settings.Role = role;
+
+                            
                             if(user.Role == "member")
                             {
                                 
