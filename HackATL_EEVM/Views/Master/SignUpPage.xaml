@@ -105,7 +105,6 @@
                         HorizontalOptions="FillAndExpand"
                         IsPassword="True"
                         BackgroundColor="#FDC6CF"/>
-
                     <!--<BoxView
                         BackgroundColor="Black"
                         HeightRequest="0.8"

@@ -28,6 +28,7 @@ namespace HackATL_EEVM.Views.Master
         }
         async void ImgSignUp_Tapped(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new Views.MainTab());
 
             try
             {
